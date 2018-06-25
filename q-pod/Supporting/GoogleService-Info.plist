@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>733631421346-5r9ajmer3otj9kug0oup4b4sq1id9djb.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.733631421346-5r9ajmer3otj9kug0oup4b4sq1id9djb</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBSCr11UwsbeDVFwZlBOj3K4zn_m7WJPug</string>
+	<key>GCM_SENDER_ID</key>
+	<string>733631421346</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.kingpick.q-pod</string>
+	<key>PROJECT_ID</key>
+	<string>qpod-27476</string>
+	<key>STORAGE_BUCKET</key>
+	<string>qpod-27476.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:733631421346:ios:50546962ddd20a75</string>
+	<key>DATABASE_URL</key>
+	<string>https://qpod-27476.firebaseio.com</string>
+</dict>
+</plist>
