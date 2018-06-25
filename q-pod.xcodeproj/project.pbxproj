@@ -19,6 +19,9 @@
 		7E9F638320E1253D00D864F5 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F638220E1253D00D864F5 /* UserService.swift */; };
 		7E9F638520E128D700D864F5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F638420E128D700D864F5 /* Constants.swift */; };
 		7E9F638720E12D0800D864F5 /* Storyboard+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F638620E12D0800D864F5 /* Storyboard+Utility.swift */; };
+		7E9F638920E13F3800D864F5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F638820E13F3800D864F5 /* HomeViewController.swift */; };
+		7E9F638B20E13F5200D864F5 /* QPodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F638A20E13F5200D864F5 /* QPodsViewController.swift */; };
+		7E9F638D20E13F5E00D864F5 /* InvitesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F638C20E13F5E00D864F5 /* InvitesViewController.swift */; };
 		D99DF4BB10286DD2B1F69D4F /* Pods_q_pod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B5C92200F903CF5EEDA184A /* Pods_q_pod.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +41,9 @@
 		7E9F638220E1253D00D864F5 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		7E9F638420E128D700D864F5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7E9F638620E12D0800D864F5 /* Storyboard+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboard+Utility.swift"; sourceTree = "<group>"; };
+		7E9F638820E13F3800D864F5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		7E9F638A20E13F5200D864F5 /* QPodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QPodsViewController.swift; sourceTree = "<group>"; };
+		7E9F638C20E13F5E00D864F5 /* InvitesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitesViewController.swift; sourceTree = "<group>"; };
 		98B508A0012A34F77B47E5B9 /* Pods-q-pod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-q-pod.release.xcconfig"; path = "Pods/Target Support Files/Pods-q-pod/Pods-q-pod.release.xcconfig"; sourceTree = "<group>"; };
 		DEFCA94F67D7AD01E29086DC /* Pods-q-pod.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-q-pod.debug.xcconfig"; path = "Pods/Target Support Files/Pods-q-pod/Pods-q-pod.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +108,9 @@
 			children = (
 				7E9F637C20E110D600D864F5 /* LoginViewController.swift */,
 				7E9F638020E122E700D864F5 /* CreateUsernameViewController.swift */,
+				7E9F638820E13F3800D864F5 /* HomeViewController.swift */,
+				7E9F638A20E13F5200D864F5 /* QPodsViewController.swift */,
+				7E9F638C20E13F5E00D864F5 /* InvitesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -313,8 +322,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E9F637F20E11BB700D864F5 /* User.swift in Sources */,
+				7E9F638B20E13F5200D864F5 /* QPodsViewController.swift in Sources */,
 				7E9F637D20E110D600D864F5 /* LoginViewController.swift in Sources */,
+				7E9F638D20E13F5E00D864F5 /* InvitesViewController.swift in Sources */,
 				7E9F638320E1253D00D864F5 /* UserService.swift in Sources */,
+				7E9F638920E13F3800D864F5 /* HomeViewController.swift in Sources */,
 				7E9F638720E12D0800D864F5 /* Storyboard+Utility.swift in Sources */,
 				7E9F638520E128D700D864F5 /* Constants.swift in Sources */,
 				7E9F638120E122E700D864F5 /* CreateUsernameViewController.swift in Sources */,
