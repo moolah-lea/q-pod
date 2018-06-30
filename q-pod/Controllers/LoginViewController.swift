@@ -41,6 +41,11 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        //make rounded edge
+        outLogin.layer.cornerRadius = 5
+        outLogin.layer.borderWidth = 1
+        outLogin.layer.borderColor = UIColor.black.cgColor
     }
 
     override func didReceiveMemoryWarning() {
@@ -79,12 +84,11 @@ extension LoginViewController: FUIAuthDelegate {
         UserService.show(forUID: user.uid) { (user) in
             if let user = user {
                 // handle existing user
-                User.setCurrent(user)
+                User.setCurrent(user, writeToUserDefaults: true)
                 
-                let initialViewController = UIStoryboard.initialViewController(for: .main)
+                let initialViewController = UIStoryboard.initialViewController(for: .home)
                 self.view.window?.rootViewController = initialViewController
                 self.view.window?.makeKeyAndVisible()
-                
             } else {
                 // handle new user
                 self.performSegue(withIdentifier: Constants.Segue.toCreateUsername, sender: self)

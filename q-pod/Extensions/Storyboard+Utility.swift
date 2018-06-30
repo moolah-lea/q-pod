@@ -9,9 +9,11 @@
 import UIKit
 
 extension UIStoryboard {
+    
     enum QPType: String {
         case main
         case login
+        case home
         
         var filename: String {
             return rawValue.capitalized

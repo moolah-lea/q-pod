@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E2B0E2D20E667C100B1D8BF /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E2B0E2C20E667C100B1D8BF /* Home.storyboard */; };
 		7E9F635F20E0F86600D864F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F635E20E0F86600D864F5 /* AppDelegate.swift */; };
 		7E9F636420E0F86600D864F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E9F636220E0F86600D864F5 /* Main.storyboard */; };
 		7E9F636620E0F86800D864F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E9F636520E0F86800D864F5 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		4B5C92200F903CF5EEDA184A /* Pods_q_pod.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_q_pod.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E2B0E2C20E667C100B1D8BF /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		7E9F635B20E0F86600D864F5 /* q-pod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "q-pod.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E9F635E20E0F86600D864F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E9F636320E0F86600D864F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				7E9F636220E0F86600D864F5 /* Main.storyboard */,
 				7E9F636720E0F86800D864F5 /* LaunchScreen.storyboard */,
 				7E9F637A20E1108400D864F5 /* Login.storyboard */,
+				7E2B0E2C20E667C100B1D8BF /* Home.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				7E9F636920E0F86800D864F5 /* LaunchScreen.storyboard in Resources */,
 				7E9F637120E10D1900D864F5 /* GoogleService-Info.plist in Resources */,
 				7E9F636620E0F86800D864F5 /* Assets.xcassets in Resources */,
+				7E2B0E2D20E667C100B1D8BF /* Home.storyboard in Resources */,
 				7E9F637B20E1108400D864F5 /* Login.storyboard in Resources */,
 				7E9F636420E0F86600D864F5 /* Main.storyboard in Resources */,
 			);
