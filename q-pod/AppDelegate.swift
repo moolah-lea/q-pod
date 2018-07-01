@@ -18,9 +18,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
+        let navigationBarAppearance = UINavigationBar.appearance()
+        
+        navigationBarAppearance.tintColor = uicolorFromHex(rgbValue: 0xFFFFFF)
+        navigationBarAppearance.barTintColor = uicolorFromHex(rgbValue: 0x0E0E0E)
+        navigationBarAppearance.titleTextAttributes = [NSAttributedStringKey(rawValue: NSAttributedStringKey.foregroundColor.rawValue): UIColor.white]
+        
+        application.statusBarStyle = .lightContent
+        
         configureInitialRootViewController(for: window)
         
         return true
+    }
+    
+    func uicolorFromHex(rgbValue:UInt32)->UIColor{
+        let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
+        let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
+        let blue = CGFloat(rgbValue & 0xFF)/256.0
+        
+        return UIColor(red:red, green:green, blue:blue, alpha:1.0)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -61,11 +77,6 @@ extension AppDelegate {
             
             initialViewController = UIStoryboard.initialViewController(for: .home)
             
-            let navigationBarAppearance = UINavigationBar.appearance()
-            
-            navigationBarAppearance.tintColor = uicolorFromHex(rgbValue: 0xFFFFFF)
-            navigationBarAppearance.barTintColor = uicolorFromHex(rgbValue: 0x0E0E0E)
-            //navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
             
         } else {
             initialViewController = UIStoryboard.initialViewController(for: .login)
@@ -75,12 +86,5 @@ extension AppDelegate {
         window?.makeKeyAndVisible()
     }
     
-    func uicolorFromHex(rgbValue:UInt32)->UIColor{
-        let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
-        let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
-        let blue = CGFloat(rgbValue & 0xFF)/256.0
-        
-        return UIColor(red:red, green:green, blue:blue, alpha:1.0)
-    }
 }
 

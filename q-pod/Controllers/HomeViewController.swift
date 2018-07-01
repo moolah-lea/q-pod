@@ -10,11 +10,26 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    let photoHelper = MGPhotoHelper()
+    
     @IBOutlet weak var whatTextfield: UITextField!
     @IBOutlet weak var whereTextfield: UITextField!
     @IBOutlet weak var whenTextfield: UITextField!
     
     @IBOutlet weak var outCreatePod: UIButton!
+    @IBOutlet weak var outAddBg: UIButton!
+    
+    @IBAction func actAddBg(_ sender: UIButton) {
+        photoHelper.presentActionSheet(from: self)
+    }
+    
+    @IBAction func actCreatePod(_ sender: UIButton) {
+        print("Create Pod Button Pressed!")
+    }
+    
+    @IBAction func addLocation(_ sender: Any) {
+        print("Add Location Button Pressed!")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +37,7 @@ class HomeViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         // set image for navigation header
-        let logo = UIImage(named: "nav_logo.png")
+        let logo = UIImage(named: Constants.Icons.logo)
         let imageView = UIImageView(image:logo)
         self.navigationItem.titleView = imageView
         
@@ -36,6 +51,32 @@ class HomeViewController: UIViewController {
         outCreatePod.layer.borderWidth = 3
         outCreatePod.layer.borderColor = UIColor.cyan.cgColor
         
+        /*figure out a way to show button being pressed, check out https://stackoverflow.com/questions/48317211/programmatically-added-button-not-showing-touch-feel-in-ios
+        */
+        
+        
+        //add location button on where textfield
+        addImageForRightView(whereTextfield, iconName: Constants.Icons.addLocation)
+        
+        photoHelper.completionHandler = { image in
+            
+            //upload image
+            PostService.create(for: image)
+        }
+        
+        //delegate = self
+        
+    }
+    
+    func addImageForRightView(_ textField: UITextField, iconName: String) {
+        let button = UIButton(type: .custom)
+        let img = UIImage(named: iconName)?.imageWithColor(color1: UIColor.lightGray)
+        button.setImage(img, for: .normal)
+        button.imageEdgeInsets = UIEdgeInsetsMake(0, -16, 0, 0)
+        button.frame = CGRect(x: CGFloat(textField.frame.size.width - 25), y: CGFloat(5), width: CGFloat(25), height: CGFloat(25))
+        button.addTarget(self, action: #selector(self.addLocation), for: .touchUpInside)
+        textField.rightView = button
+        textField.rightViewMode = .always
     }
     
     func drawBorderForTextfield(_ textField: UITextField) {
@@ -57,12 +98,9 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        UIApplication.shared.statusBarStyle = .lightContent
     }
     
-    override var preferredStatusBarStyle : UIStatusBarStyle {
-        return .lightContent
-    }
+    
 
     /*
     // MARK: - Navigation

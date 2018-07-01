@@ -11,7 +11,6 @@ import UIKit
 extension UIStoryboard {
     
     enum QPType: String {
-        case main
         case login
         case home
         
