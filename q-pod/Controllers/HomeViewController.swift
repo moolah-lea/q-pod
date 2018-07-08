@@ -19,6 +19,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var outCreatePod: UIButton!
     @IBOutlet weak var outAddBg: UIButton!
     
+    private var datePicker : UIDatePicker?
+    
     @IBAction func actAddBg(_ sender: UIButton) {
         photoHelper.presentActionSheet(from: self)
     }
@@ -29,6 +31,9 @@ class HomeViewController: UIViewController {
     
     @IBAction func addLocation(_ sender: Any) {
         print("Add Location Button Pressed!")
+        
+        performSegue(withIdentifier: "setLocationSegue", sender: nil)
+
     }
     
     override func viewDidLoad() {
@@ -64,8 +69,36 @@ class HomeViewController: UIViewController {
             PostService.create(for: image)
         }
         
-        //delegate = self
+        datePicker = UIDatePicker()
+        datePicker?.datePickerMode = .dateAndTime
+        let currDate = Date()
+        datePicker?.minimumDate = currDate
+        whenTextfield.inputView = datePicker
         
+        datePicker?.addTarget(self, action: #selector(HomeViewController.datePickerValueChanged(_:)), for: .valueChanged)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.viewTapped(gestureRecognizer:)))
+        
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+    @objc func datePickerValueChanged(_ sender: UIDatePicker){
+        
+        // Create date formatter
+        let dateFormatter: DateFormatter = DateFormatter()
+        
+        // Set date format
+        dateFormatter.dateFormat = "MMM dd, yyyy hh:mm a"
+        
+        // Apply date format
+        let selectedDate: String = dateFormatter.string(from: sender.date)
+        
+        whenTextfield.text = selectedDate
+        print("Selected value \(selectedDate)")
     }
     
     func addImageForRightView(_ textField: UITextField, iconName: String) {

@@ -8,10 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		7E2B0E2D20E667C100B1D8BF /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E2B0E2C20E667C100B1D8BF /* Home.storyboard */; };
+		7E4C73D320F1F8F100F29088 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4C73D220F1F8F100F29088 /* LocationSearchTable.swift */; };
+		7E4C73D520F243E700F29088 /* ArtworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4C73D420F243E700F29088 /* ArtworkHelper.swift */; };
+		7E4C73D720F24F9000F29088 /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4C73D620F24F9000F29088 /* Artwork.swift */; };
 		7E9EAF9D20E8D4A6006A5F5B /* ImageColorTint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9EAF9C20E8D4A6006A5F5B /* ImageColorTint.swift */; };
 		7E9EAFA120E8DD0C006A5F5B /* MGPhotoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9EAFA020E8DD0C006A5F5B /* MGPhotoHelper.swift */; };
 		7E9EAFA320E8EE3E006A5F5B /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9EAFA220E8EE3E006A5F5B /* StorageService.swift */; };
 		7E9EAFA720E8EF16006A5F5B /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9EAFA620E8EF16006A5F5B /* PostService.swift */; };
+		7E9EAFA920EAA27C006A5F5B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9EAFA820EAA27C006A5F5B /* MapViewController.swift */; };
 		7E9F635F20E0F86600D864F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F635E20E0F86600D864F5 /* AppDelegate.swift */; };
 		7E9F636620E0F86800D864F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E9F636520E0F86800D864F5 /* Assets.xcassets */; };
 		7E9F636920E0F86800D864F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E9F636720E0F86800D864F5 /* LaunchScreen.storyboard */; };
@@ -30,10 +34,14 @@
 /* Begin PBXFileReference section */
 		4B5C92200F903CF5EEDA184A /* Pods_q_pod.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_q_pod.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E2B0E2C20E667C100B1D8BF /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		7E4C73D220F1F8F100F29088 /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
+		7E4C73D420F243E700F29088 /* ArtworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkHelper.swift; sourceTree = "<group>"; };
+		7E4C73D620F24F9000F29088 /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
 		7E9EAF9C20E8D4A6006A5F5B /* ImageColorTint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageColorTint.swift; sourceTree = "<group>"; };
 		7E9EAFA020E8DD0C006A5F5B /* MGPhotoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPhotoHelper.swift; sourceTree = "<group>"; };
 		7E9EAFA220E8EE3E006A5F5B /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		7E9EAFA620E8EF16006A5F5B /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
+		7E9EAFA820EAA27C006A5F5B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		7E9F635B20E0F86600D864F5 /* q-pod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "q-pod.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E9F635E20E0F86600D864F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E9F636520E0F86800D864F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -113,6 +121,8 @@
 				7E9F637C20E110D600D864F5 /* LoginViewController.swift */,
 				7E9F638020E122E700D864F5 /* CreateUsernameViewController.swift */,
 				7E9F638820E13F3800D864F5 /* HomeViewController.swift */,
+				7E9EAFA820EAA27C006A5F5B /* MapViewController.swift */,
+				7E4C73D220F1F8F100F29088 /* LocationSearchTable.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -130,6 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				7E9EAFA020E8DD0C006A5F5B /* MGPhotoHelper.swift */,
+				7E4C73D420F243E700F29088 /* ArtworkHelper.swift */,
+				7E4C73D620F24F9000F29088 /* Artwork.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -328,11 +340,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E9EAFA120E8DD0C006A5F5B /* MGPhotoHelper.swift in Sources */,
+				7E4C73D520F243E700F29088 /* ArtworkHelper.swift in Sources */,
+				7E4C73D720F24F9000F29088 /* Artwork.swift in Sources */,
 				7E9F637F20E11BB700D864F5 /* User.swift in Sources */,
 				7E9F637D20E110D600D864F5 /* LoginViewController.swift in Sources */,
 				7E9F638320E1253D00D864F5 /* UserService.swift in Sources */,
 				7E9F638920E13F3800D864F5 /* HomeViewController.swift in Sources */,
 				7E9F638720E12D0800D864F5 /* Storyboard+Utility.swift in Sources */,
+				7E9EAFA920EAA27C006A5F5B /* MapViewController.swift in Sources */,
+				7E4C73D320F1F8F100F29088 /* LocationSearchTable.swift in Sources */,
 				7E9EAF9D20E8D4A6006A5F5B /* ImageColorTint.swift in Sources */,
 				7E9EAFA720E8EF16006A5F5B /* PostService.swift in Sources */,
 				7E9F638520E128D700D864F5 /* Constants.swift in Sources */,
