@@ -19,4 +19,9 @@ struct Constants {
         static let username = "username"
     }
     
+    struct Icons {
+        static let addLocation = "ic_add_location.png"
+        static let logo = "nav_logo.png"
+    }
+    
 }

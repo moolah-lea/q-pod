@@ -28,7 +28,7 @@ class CreateUsernameViewController: UIViewController {
             
             User.setCurrent(user, writeToUserDefaults: true)
             
-            let initialViewController = UIStoryboard.initialViewController(for: .main)
+            let initialViewController = UIStoryboard.initialViewController(for: .home)
             self.view.window?.rootViewController = initialViewController
             self.view.window?.makeKeyAndVisible()
         }
@@ -44,6 +44,11 @@ class CreateUsernameViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        //make rounded edge & cyan border
+        outNextButton.layer.cornerRadius = 8
+        outNextButton.layer.borderWidth = 3
+        outNextButton.layer.borderColor = UIColor.cyan.cgColor
+        
     }
 
     override func didReceiveMemoryWarning() {
