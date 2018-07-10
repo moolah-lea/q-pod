@@ -7,14 +7,23 @@
 //
 
 import UIKit
+import MapKit
+
+protocol HandleUserPrefLocation {
+    func getSelectedLocation(selectedPlaceMark: MKPlacemark)
+}
 
 class HomeViewController: UIViewController {
     
     let photoHelper = MGPhotoHelper()
+    weak var selectedPlaceMark: MKPlacemark!
     
     @IBOutlet weak var whatTextfield: UITextField!
     @IBOutlet weak var whereTextfield: UITextField!
     @IBOutlet weak var whenTextfield: UITextField!
+    
+    var whereTextAppend: String = ""
+    var didSetLocation: Bool = false
     
     @IBOutlet weak var outCreatePod: UIButton!
     @IBOutlet weak var outAddBg: UIButton!
@@ -32,8 +41,34 @@ class HomeViewController: UIViewController {
     @IBAction func addLocation(_ sender: Any) {
         print("Add Location Button Pressed!")
         
-        performSegue(withIdentifier: "setLocationSegue", sender: nil)
-
+        if selectedPlaceMark != nil {
+            //if location was already set
+            
+            guard let currTextVal = whereTextfield.text else {
+                return
+            }
+            
+            var userText: String = ""
+            
+            if currTextVal != "" {
+                var subdividedStringArray = currTextVal.components(separatedBy: ", @")
+                userText = subdividedStringArray[0]
+                
+                //things to do when user toggles off the location switch
+                if subdividedStringArray.count > 1 {
+                    subdividedStringArray[1] = ""
+                    //set PlaceMark to nil again
+                    selectedPlaceMark = nil
+                    addImageForRightView(whereTextfield, iconName: Constants.Icons.addLocation)
+                }
+            }
+            whereTextfield.text = "\(userText)"
+            didSetLocation = false
+        } else {
+            //if location was not yet set
+            performSegue(withIdentifier: "setUserLocation", sender: nil)
+        }
+        
     }
     
     override func viewDidLoad() {
@@ -103,7 +138,14 @@ class HomeViewController: UIViewController {
     
     func addImageForRightView(_ textField: UITextField, iconName: String) {
         let button = UIButton(type: .custom)
-        let img = UIImage(named: iconName)?.imageWithColor(color1: UIColor.lightGray)
+        
+        let img: UIImage
+        
+        if selectedPlaceMark == nil {
+            img = (UIImage(named: iconName)?.imageWithColor(color1: UIColor.lightGray))!
+        } else {
+            img = (UIImage(named: iconName)?.imageWithColor(color1: UIColor.blue))!
+        }
         button.setImage(img, for: .normal)
         button.imageEdgeInsets = UIEdgeInsetsMake(0, -16, 0, 0)
         button.frame = CGRect(x: CGFloat(textField.frame.size.width - 25), y: CGFloat(5), width: CGFloat(25), height: CGFloat(25))
@@ -131,6 +173,15 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        //self.view.setNeedsLayout()
+        
+//        guard let currTextVal = whereTextfield.text else {
+//            whereTextfield.text = ""
+//            return
+//        }
+        
+        //whereTextfield.text = "\(currTextVal), \(whereTextAppend)"
     }
     
     
@@ -144,5 +195,48 @@ class HomeViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationNavigationController = segue.destination as! UINavigationController
+        let targetController = destinationNavigationController.topViewController as! MapViewController
+        
+        targetController.userLocationDelegate = self
+    }
 
+}
+
+extension HomeViewController: HandleUserPrefLocation {
+    
+    func getSelectedLocation(selectedPlaceMark: MKPlacemark) {
+        
+        
+        
+        guard let title = selectedPlaceMark.title, let _ = selectedPlaceMark.name else {
+            return
+        }
+        
+        self.selectedPlaceMark = selectedPlaceMark
+        
+        print("***************** FINALLY! \(title) ******************")
+        
+        whereTextAppend = title
+        guard var currTextVal = whereTextfield.text else {
+            return
+        }
+        if currTextVal != "" {
+            var subdividedStringArray = currTextVal.components(separatedBy: ", @")
+            let userText = subdividedStringArray[0]
+            var locationText  = ""
+            
+            if subdividedStringArray.count > 1 {
+                subdividedStringArray[1] = whereTextAppend
+                locationText = subdividedStringArray[1]
+                currTextVal = "\(userText) , @ \(locationText)"
+            }
+            
+        }
+        whereTextfield.text = "\(currTextVal), @ \(whereTextAppend)"
+        addImageForRightView(whereTextfield, iconName: Constants.Icons.addLocation)
+    }
+    
 }

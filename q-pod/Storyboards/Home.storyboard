@@ -117,16 +117,23 @@
                                     <action selector="actAddBg:" destination="dBX-ov-LQB" eventType="touchUpInside" id="eGQ-iQ-V6w"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V6j-Mb-JfO">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ghJ-R1-GqI" firstAttribute="trailing" secondItem="pkd-ds-0b9" secondAttribute="trailing" constant="16" id="0Hs-ry-vsk"/>
+                            <constraint firstItem="V6j-Mb-JfO" firstAttribute="trailing" secondItem="ghJ-R1-GqI" secondAttribute="trailing" id="32B-yh-6sy"/>
+                            <constraint firstItem="V6j-Mb-JfO" firstAttribute="top" secondItem="ghJ-R1-GqI" secondAttribute="top" id="3yZ-bK-RHc"/>
                             <constraint firstItem="0QZ-JC-joL" firstAttribute="top" secondItem="pkd-ds-0b9" secondAttribute="bottom" constant="73" id="App-tB-Aay"/>
                             <constraint firstItem="YYR-qC-RM7" firstAttribute="top" secondItem="ghJ-R1-GqI" secondAttribute="top" constant="29" id="CC7-2t-6I7"/>
                             <constraint firstItem="KXX-gr-3mG" firstAttribute="centerX" secondItem="wI3-Xa-W5l" secondAttribute="centerX" id="LFi-9x-Z9E"/>
                             <constraint firstItem="gdj-Y6-nDy" firstAttribute="top" secondItem="0QZ-JC-joL" secondAttribute="bottom" constant="5" id="OYs-q8-qzU"/>
                             <constraint firstItem="pkd-ds-0b9" firstAttribute="top" secondItem="ghJ-R1-GqI" secondAttribute="top" constant="120" id="XN5-cP-QLn"/>
                             <constraint firstItem="KXX-gr-3mG" firstAttribute="leading" secondItem="ghJ-R1-GqI" secondAttribute="leading" constant="16" id="cXI-yU-xBr"/>
+                            <constraint firstItem="V6j-Mb-JfO" firstAttribute="leading" secondItem="ghJ-R1-GqI" secondAttribute="leading" id="cmg-Ft-Xyp"/>
+                            <constraint firstItem="V6j-Mb-JfO" firstAttribute="bottom" secondItem="ghJ-R1-GqI" secondAttribute="bottom" id="deB-2q-efn"/>
                             <constraint firstItem="ghJ-R1-GqI" firstAttribute="trailing" secondItem="YYR-qC-RM7" secondAttribute="trailing" constant="16" id="dg7-qQ-JmT"/>
                             <constraint firstItem="pkd-ds-0b9" firstAttribute="leading" secondItem="ghJ-R1-GqI" secondAttribute="leading" constant="16" id="fMI-lG-B4r"/>
                             <constraint firstItem="ghJ-R1-GqI" firstAttribute="trailing" secondItem="gdj-Y6-nDy" secondAttribute="trailing" constant="16" id="h6b-NN-Krq"/>
@@ -146,7 +153,7 @@
                         <outlet property="whatTextfield" destination="8xV-za-YUo" id="nvx-Ge-ieI"/>
                         <outlet property="whenTextfield" destination="Y8g-hb-Ypt" id="VKr-Wh-UXz"/>
                         <outlet property="whereTextfield" destination="Fd6-v6-8wD" id="STs-K7-2fl"/>
-                        <segue destination="Ae3-WR-jx7" kind="presentation" identifier="setLocationSegue" id="byo-r4-Kk7"/>
+                        <segue destination="Ae3-WR-jx7" kind="presentation" identifier="setUserLocation" id="IfN-bA-hRy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x0h-0G-ca5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -156,7 +163,7 @@
         <!--Map View Controller-->
         <scene sceneID="QYL-k3-tfD">
             <objects>
-                <viewController id="Gcq-Zo-B1q" customClass="MapViewController" customModule="q_pod" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Gcq-Zo-B1q" customClass="MapViewController" customModule="q_pod" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iwB-hw-pZh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -245,6 +252,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="t5j-rK-AOB">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

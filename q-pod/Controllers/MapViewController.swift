@@ -17,6 +17,8 @@ class MapViewController: UIViewController {
     
     var selectedPin:MKPlacemark? = nil
     
+    var userLocationDelegate: HandleUserPrefLocation?
+    
     @IBAction func actBackBn(_ sender: UIBarButtonItem) {
         //performSegue(withIdentifier: "cancelMapLocation", sender: self)
         dismiss(animated: true, completion: nil)
@@ -37,9 +39,8 @@ class MapViewController: UIViewController {
 
     @objc func getDirections(){
         if let selectedPin = selectedPin {
-            let mapItem = MKMapItem(placemark: selectedPin)
-            let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
-            mapItem.openInMaps(launchOptions: launchOptions)
+            userLocationDelegate?.getSelectedLocation(selectedPlaceMark: selectedPin)
+            dismiss(animated: true, completion: nil)
         }
     }
     
@@ -128,6 +129,7 @@ extension MapViewController : CLLocationManagerDelegate {
 // MKPointAnnotation is a map pin that contains a coordinate, title, and subtitle. The placemark has similar information like a coordinate and address information. Here you populate the title and subtitle with information that makes sense.
 
 extension MapViewController: HandleMapSearch {
+    
     func dropPinZoomIn(placemark:MKPlacemark){
         // cache the pin
         selectedPin = placemark
@@ -136,71 +138,14 @@ extension MapViewController: HandleMapSearch {
         
         let artWork = Artwork(title: (selectedPin?.title)!, locationName: (selectedPin?.name)!, discipline: "Test Discipline", coordinate: (selectedPin?.coordinate)!)
         
-//        if let city = placemark.locality,
-//            let state = placemark.administrativeArea {
-//            artWork.subtitle = "\(city) \(state)"
-//        }
         mapView.addAnnotation(artWork)
         let span = MKCoordinateSpanMake(0.05, 0.05)
         let region = MKCoordinateRegionMake((selectedPin?.coordinate)!, span)
         mapView.setRegion(region, animated: true)
     }
+    
+    
 }
-
-
-//extension MapViewController: MKMapViewDelegate {
-//    // 1
-//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//        // 2
-//        guard let annotation = annotation as? ArtworkHelper else { return nil }
-//        // 3
-//        let identifier = "marker"
-//        var view: MKMarkerAnnotationView
-//        // 4
-//        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-//            as? MKMarkerAnnotationView {
-//            dequeuedView.annotation = annotation
-//            view = dequeuedView
-//        } else {
-//            // 5
-//            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-//            view.canShowCallout = true
-//            view.calloutOffset = CGPoint(x: -5, y: 5)
-//            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-//        }
-//        return view
-//    }
-//}
-
-//extension MapViewController : MKMapViewDelegate {
-//
-//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?{
-//        if annotation is MKUserLocation {
-//            //return nil so map view draws "blue dot" for standard user location
-//            return nil
-//        }
-//        let reuseId = "pin"
-//        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
-//        pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-//        pinView?.pinTintColor = UIColor.orange
-//        pinView?.canShowCallout = true
-//        let smallSquare = CGSize(width: 30, height: 30)
-//        let button = UIButton(frame: CGRect(origin: CGPoint.zero, size: smallSquare))
-//        button.setBackgroundImage(UIImage(named: "ic_pin_drop"), for: .normal)
-//        button.addTarget(self, action: Selector(("setLocation")), for: .touchUpInside)
-//        pinView?.leftCalloutAccessoryView = button
-//        return pinView
-//    }
-//
-//    func setLocation(){
-//        if let selectedPin = selectedPin {
-//            let mapItem = MKMapItem(placemark: selectedPin)
-//            let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
-//            print("Ready to set location")
-//            mapItem.openInMaps(launchOptions: launchOptions)
-//        }
-//    }
-//}
 
 extension MapViewController : MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?{

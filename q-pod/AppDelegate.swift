@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationBarAppearance = UINavigationBar.appearance()
         
         navigationBarAppearance.tintColor = uicolorFromHex(rgbValue: 0xFFFFFF)
-        navigationBarAppearance.barTintColor = uicolorFromHex(rgbValue: 0x0E0E0E)
+        navigationBarAppearance.barTintColor = uicolorFromHex(rgbValue: 0x000000)
         navigationBarAppearance.titleTextAttributes = [NSAttributedStringKey(rawValue: NSAttributedStringKey.foregroundColor.rawValue): UIColor.white]
         
         application.statusBarStyle = .lightContent
