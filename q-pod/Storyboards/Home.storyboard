@@ -117,7 +117,7 @@
                                     <action selector="actAddBg:" destination="dBX-ov-LQB" eventType="touchUpInside" id="eGQ-iQ-V6w"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V6j-Mb-JfO">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V6j-Mb-JfO">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </imageView>
                         </subviews>
@@ -148,6 +148,7 @@
                         <barButtonItem key="rightBarButtonItem" title="QPods" image="ic_question_answer" id="Apf-DX-NRF"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="bgImgView" destination="V6j-Mb-JfO" id="N6j-qd-ytW"/>
                         <outlet property="outAddBg" destination="YYR-qC-RM7" id="hTn-Rk-8bV"/>
                         <outlet property="outCreatePod" destination="KXX-gr-3mG" id="Zko-VE-XoB"/>
                         <outlet property="whatTextfield" destination="8xV-za-YUo" id="nvx-Ge-ieI"/>

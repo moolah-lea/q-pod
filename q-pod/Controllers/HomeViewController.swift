@@ -8,10 +8,15 @@
 
 import UIKit
 import MapKit
+import Kingfisher
 
 protocol HandleUserPrefLocation {
     func getSelectedLocation(selectedPlaceMark: MKPlacemark)
 }
+
+//protocol HandlePodBgImg {
+//    func getPodBgImg(posts: [Post])
+//}
 
 class HomeViewController: UIViewController {
     
@@ -21,9 +26,12 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var whatTextfield: UITextField!
     @IBOutlet weak var whereTextfield: UITextField!
     @IBOutlet weak var whenTextfield: UITextField!
+    @IBOutlet weak var bgImgView: UIImageView!
     
     var whereTextAppend: String = ""
     var didSetLocation: Bool = false
+    
+    var posts = [Post]()
     
     @IBOutlet weak var outCreatePod: UIButton!
     @IBOutlet weak var outAddBg: UIButton!
@@ -32,6 +40,22 @@ class HomeViewController: UIViewController {
     
     @IBAction func actAddBg(_ sender: UIButton) {
         photoHelper.presentActionSheet(from: self)
+//        guard let bgImg = photoHelper.completionHandler else {
+//            return
+//        }
+//
+        
+        //the bug is here
+        
+        UserService.posts(for: User.current) { (posts) in
+            self.posts = posts
+            let lastIndex = posts.count - 1
+            if posts.count > 1 {
+                let post = posts[lastIndex]
+                let imgURL = URL(string: post.imageURL)
+                self.bgImgView.kf.setImage(with: imgURL)
+            }
+        }
     }
     
     @IBAction func actCreatePod(_ sender: UIButton) {
@@ -173,15 +197,8 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+     
         //self.view.setNeedsLayout()
-        
-//        guard let currTextVal = whereTextfield.text else {
-//            whereTextfield.text = ""
-//            return
-//        }
-        
-        //whereTextfield.text = "\(currTextVal), \(whereTextAppend)"
     }
     
     
@@ -240,3 +257,5 @@ extension HomeViewController: HandleUserPrefLocation {
     }
     
 }
+
+
