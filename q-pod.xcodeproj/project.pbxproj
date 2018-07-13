@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7E27D03820F66539000ECFC8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E27D03720F66539000ECFC8 /* Post.swift */; };
 		7E2B0E2D20E667C100B1D8BF /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E2B0E2C20E667C100B1D8BF /* Home.storyboard */; };
+		7E36561820F879FF0069E12E /* UIColor+Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E36561720F879FF0069E12E /* UIColor+Icons.swift */; };
 		7E4C73D320F1F8F100F29088 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4C73D220F1F8F100F29088 /* LocationSearchTable.swift */; };
 		7E4C73D520F243E700F29088 /* ArtworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4C73D420F243E700F29088 /* ArtworkHelper.swift */; };
 		7E4C73D720F24F9000F29088 /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4C73D620F24F9000F29088 /* Artwork.swift */; };
@@ -38,6 +39,7 @@
 		4B5C92200F903CF5EEDA184A /* Pods_q_pod.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_q_pod.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E27D03720F66539000ECFC8 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		7E2B0E2C20E667C100B1D8BF /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		7E36561720F879FF0069E12E /* UIColor+Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Icons.swift"; sourceTree = "<group>"; };
 		7E4C73D220F1F8F100F29088 /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		7E4C73D420F243E700F29088 /* ArtworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkHelper.swift; sourceTree = "<group>"; };
 		7E4C73D620F24F9000F29088 /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				7E9EAF9C20E8D4A6006A5F5B /* ImageColorTint.swift */,
 				7EC2179320F64535003CDCA8 /* UIImage+Size.swift */,
 				7EC2179520F6456C003CDCA8 /* StorageReference+Post.swift */,
+				7E36561720F879FF0069E12E /* UIColor+Icons.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				7E9F637D20E110D600D864F5 /* LoginViewController.swift in Sources */,
 				7E9F638320E1253D00D864F5 /* UserService.swift in Sources */,
 				7E9F638920E13F3800D864F5 /* HomeViewController.swift in Sources */,
+				7E36561820F879FF0069E12E /* UIColor+Icons.swift in Sources */,
 				7E9F638720E12D0800D864F5 /* Storyboard+Utility.swift in Sources */,
 				7E9EAFA920EAA27C006A5F5B /* MapViewController.swift in Sources */,
 				7E4C73D320F1F8F100F29088 /* LocationSearchTable.swift in Sources */,

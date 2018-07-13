@@ -31,7 +31,8 @@ class HomeViewController: UIViewController {
     var whereTextAppend: String = ""
     var didSetLocation: Bool = false
     
-    var posts = [Post]()
+    var podImg: UIImage?
+    //var posts = [Post]()
     
     @IBOutlet weak var outCreatePod: UIButton!
     @IBOutlet weak var outAddBg: UIButton!
@@ -40,22 +41,32 @@ class HomeViewController: UIViewController {
     
     @IBAction func actAddBg(_ sender: UIButton) {
         photoHelper.presentActionSheet(from: self)
-//        guard let bgImg = photoHelper.completionHandler else {
-//            return
-//        }
-//
         
-        //the bug is here
-        
-        UserService.posts(for: User.current) { (posts) in
-            self.posts = posts
-            let lastIndex = posts.count - 1
-            if posts.count > 1 {
-                let post = posts[lastIndex]
-                let imgURL = URL(string: post.imageURL)
-                self.bgImgView.kf.setImage(with: imgURL)
-            }
+        photoHelper.completionHandler = { image in
+            
+            //set it to the global variable so we can use this for creating pod object
+            self.podImg = image
+            //upload image to firebase
+            PostService.create(for: image)
+            
+            //set background
+            self.bgImgView.image = image
+            
         }
+        
+        /****************
+            This block allows for pulling the "posts" objects from database for that particular user
+        *****************/
+        
+//        UserService.posts(for: User.current) { (posts) in
+//            self.posts = posts
+//            let lastIndex = posts.count - 1
+//            if posts.count > 1 {
+//                let post = posts[lastIndex]
+//                let imgURL = URL(string: post.imageURL)
+//                self.bgImgView.kf.setImage(with: imgURL)
+//            }
+//        }
     }
     
     @IBAction func actCreatePod(_ sender: UIButton) {
@@ -122,11 +133,11 @@ class HomeViewController: UIViewController {
         //add location button on where textfield
         addImageForRightView(whereTextfield, iconName: Constants.Icons.addLocation)
         
-        photoHelper.completionHandler = { image in
-            
-            //upload image
-            PostService.create(for: image)
-        }
+//        photoHelper.completionHandler = { image in
+//
+//            //upload image
+//            PostService.create(for: image)
+//        }
         
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .dateAndTime
@@ -164,11 +175,14 @@ class HomeViewController: UIViewController {
         let button = UIButton(type: .custom)
         
         let img: UIImage
+        let colorState: UIColor
         
         if selectedPlaceMark == nil {
-            img = (UIImage(named: iconName)?.imageWithColor(color1: UIColor.lightGray))!
+            colorState = UIColor().uicolorFromHex(rgbValue: 0x5B5B5B)
+            img = (UIImage(named: iconName)?.imageWithColor(color1: colorState))!
         } else {
-            img = (UIImage(named: iconName)?.imageWithColor(color1: UIColor.blue))!
+            colorState = UIColor().uicolorFromHex(rgbValue: 0x31FFFB)
+            img = (UIImage(named: iconName)?.imageWithColor(color1: colorState))!
         }
         button.setImage(img, for: .normal)
         button.imageEdgeInsets = UIEdgeInsetsMake(0, -16, 0, 0)

@@ -18,6 +18,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V6j-Mb-JfO">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nkc-h5-l4l">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Aa7-pu-0wk">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0QZ-JC-joL">
                                 <rect key="frame" x="214.5" y="461" width="144.5" height="31"/>
                                 <subviews>
@@ -49,7 +60,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q-Pod expires 24hrs after the event’s date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdj-Y6-nDy">
                                 <rect key="frame" x="117.5" y="497" width="241.5" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="0.43535850253807107" green="0.43535850253807107" blue="0.43535850253807107" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="pkd-ds-0b9">
@@ -117,15 +128,14 @@
                                     <action selector="actAddBg:" destination="dBX-ov-LQB" eventType="touchUpInside" id="eGQ-iQ-V6w"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V6j-Mb-JfO">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ghJ-R1-GqI" firstAttribute="trailing" secondItem="pkd-ds-0b9" secondAttribute="trailing" constant="16" id="0Hs-ry-vsk"/>
                             <constraint firstItem="V6j-Mb-JfO" firstAttribute="trailing" secondItem="ghJ-R1-GqI" secondAttribute="trailing" id="32B-yh-6sy"/>
+                            <constraint firstItem="nkc-h5-l4l" firstAttribute="leading" secondItem="ghJ-R1-GqI" secondAttribute="leading" id="3jT-6R-eYR"/>
                             <constraint firstItem="V6j-Mb-JfO" firstAttribute="top" secondItem="ghJ-R1-GqI" secondAttribute="top" id="3yZ-bK-RHc"/>
+                            <constraint firstItem="nkc-h5-l4l" firstAttribute="top" secondItem="ghJ-R1-GqI" secondAttribute="top" id="8Ew-Hh-AWU"/>
                             <constraint firstItem="0QZ-JC-joL" firstAttribute="top" secondItem="pkd-ds-0b9" secondAttribute="bottom" constant="73" id="App-tB-Aay"/>
                             <constraint firstItem="YYR-qC-RM7" firstAttribute="top" secondItem="ghJ-R1-GqI" secondAttribute="top" constant="29" id="CC7-2t-6I7"/>
                             <constraint firstItem="KXX-gr-3mG" firstAttribute="centerX" secondItem="wI3-Xa-W5l" secondAttribute="centerX" id="LFi-9x-Z9E"/>
@@ -136,10 +146,12 @@
                             <constraint firstItem="V6j-Mb-JfO" firstAttribute="bottom" secondItem="ghJ-R1-GqI" secondAttribute="bottom" id="deB-2q-efn"/>
                             <constraint firstItem="ghJ-R1-GqI" firstAttribute="trailing" secondItem="YYR-qC-RM7" secondAttribute="trailing" constant="16" id="dg7-qQ-JmT"/>
                             <constraint firstItem="pkd-ds-0b9" firstAttribute="leading" secondItem="ghJ-R1-GqI" secondAttribute="leading" constant="16" id="fMI-lG-B4r"/>
+                            <constraint firstItem="nkc-h5-l4l" firstAttribute="bottom" secondItem="ghJ-R1-GqI" secondAttribute="bottom" id="g24-Os-lqG"/>
                             <constraint firstItem="ghJ-R1-GqI" firstAttribute="trailing" secondItem="gdj-Y6-nDy" secondAttribute="trailing" constant="16" id="h6b-NN-Krq"/>
                             <constraint firstItem="ghJ-R1-GqI" firstAttribute="trailing" secondItem="0QZ-JC-joL" secondAttribute="trailing" constant="16" id="hLr-94-8aj"/>
                             <constraint firstItem="ghJ-R1-GqI" firstAttribute="trailing" secondItem="KXX-gr-3mG" secondAttribute="trailing" constant="16" id="kTl-rF-lJJ"/>
                             <constraint firstItem="KXX-gr-3mG" firstAttribute="top" secondItem="gdj-Y6-nDy" secondAttribute="bottom" constant="60" id="m98-df-Ief"/>
+                            <constraint firstItem="nkc-h5-l4l" firstAttribute="trailing" secondItem="ghJ-R1-GqI" secondAttribute="trailing" id="oFd-CI-IUn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ghJ-R1-GqI"/>
                     </view>
