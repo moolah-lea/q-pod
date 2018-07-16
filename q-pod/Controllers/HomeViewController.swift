@@ -21,23 +21,45 @@ protocol HandleUserPrefLocation {
 class HomeViewController: UIViewController {
     
     let photoHelper = MGPhotoHelper()
-    weak var selectedPlaceMark: MKPlacemark!
+    
+    weak var selectedPlaceMark: MKPlacemark?
     
     @IBOutlet weak var whatTextfield: UITextField!
     @IBOutlet weak var whereTextfield: UITextField!
     @IBOutlet weak var whenTextfield: UITextField!
     @IBOutlet weak var bgImgView: UIImageView!
+    @IBOutlet weak var expireSwitch: UISwitch!
+    @IBOutlet weak var expiryLabel: UILabel!
+    
+    
+    @IBAction func toggleLabel(_ sender: UISwitch) {
+        if sender.isOn {
+            sender.isSelected = true
+            // SWITCH ACTUALLY CHANGED -- DO SOMETHING HERE
+            print("Toggle On")
+            self.expiryLabel.fadeIn()
+        } else {
+            sender.isSelected = false
+            print("Toggle Off")
+            self.expiryLabel.fadeOut()
+        }
+        
+    }
     
     var whereTextAppend: String = ""
     var didSetLocation: Bool = false
+    var didSetBg: Bool = false
     
+    var pod: Pod?
     var podImg: UIImage?
-    //var posts = [Post]()
+    var posts = [Post]()
+    var latestPost: Post?
     
     @IBOutlet weak var outCreatePod: UIButton!
     @IBOutlet weak var outAddBg: UIButton!
     
     private var datePicker : UIDatePicker?
+    private var selectedDate : Date?
     
     @IBAction func actAddBg(_ sender: UIButton) {
         photoHelper.presentActionSheet(from: self)
@@ -46,31 +68,100 @@ class HomeViewController: UIViewController {
             
             //set it to the global variable so we can use this for creating pod object
             self.podImg = image
+            
             //upload image to firebase
             PostService.create(for: image)
             
             //set background
             self.bgImgView.image = image
             
+            self.didSetBg = true
         }
         
         /****************
-            This block allows for pulling the "posts" objects from database for that particular user
-        *****************/
+         This block allows for pulling the "posts" objects from database for that particular user
+         *****************/
         
-//        UserService.posts(for: User.current) { (posts) in
-//            self.posts = posts
-//            let lastIndex = posts.count - 1
-//            if posts.count > 1 {
-//                let post = posts[lastIndex]
-//                let imgURL = URL(string: post.imageURL)
-//                self.bgImgView.kf.setImage(with: imgURL)
-//            }
-//        }
+        //        UserService.posts(for: User.current) { (posts) in
+        //            self.posts = posts
+        //            let lastIndex = posts.count - 1
+        //            if posts.count > 1 {
+        //                let post = posts[lastIndex]
+        //                let imgURL = URL(string: post.imageURL)
+        //                self.bgImgView.kf.setImage(with: imgURL)
+        //            }
+        //        }
     }
+    
+//    func fetchCurrentUsersPosts() {
+//            UserService.posts(for: User.current) { (posts) in
+//            self.posts = posts
+//            //let lastIndex = posts.count - 1
+//
+//                self.latestPost = posts.last
+//                let imgURL = URL(string: (self.latestPost?.imageURL)!)
+//        }
+//    }
     
     @IBAction func actCreatePod(_ sender: UIButton) {
         print("Create Pod Button Pressed!")
+        
+        //create new pod object
+        //the initialisers already generate podid & passcode
+        var newPod = Pod(ownerId: User.current.uid)
+        //fetchCurrentUsersPosts()
+        
+        if didSetBg {
+            //get podimg's URL
+            newPod.podImgUrl = getImageUrl()
+        }
+        
+        //check podImg is not nil get textfield values
+        //remember to handle when pod does not have image
+        //right now assuming all pod's need image
+        guard podImg != nil, let currWhatVal = whatTextfield.text, let currWhereVal = whereTextfield.text, let currWhenVal = whenTextfield.text else {
+            return
+        }
+        
+        newPod.whatVal = currWhatVal
+        newPod.whereVal = currWhereVal
+        //need to handle when date is not set
+        newPod.whenVal = selectedDate
+        
+        //check if got location set, and get MKPlaceMark
+        if didSetLocation{
+            //newPod.locPlaceMark =
+        }
+        
+        if self.expireSwitch.isOn {
+            newPod.willExpire = true
+        } else {
+            newPod.willExpire = false
+        }
+        
+        // Create date formatter
+        let dateFormatter: DateFormatter = DateFormatter()
+        // Set date format
+        dateFormatter.dateFormat = "MMM dd, yyyy hh:mm a"
+        // Apply date format
+        let selectedDateStr: String = dateFormatter.string(from: newPod.whenVal!)
+        let docStr: String = dateFormatter.string(from: newPod.doc!)
+        
+        print("Congratulation! You have successfully created a pod!")
+        print("These are the values: ")
+        print("Pod ID: \(newPod.podId ?? "Not generating ID")")
+        print("Owner ID: \(newPod.ownerId ?? "Could not get owner ID")")
+        print("Passcode: \(newPod.passcode ?? "No passcode generated")")
+        print("No. of Participants: \(newPod.participantsId.count)")
+        print("*******************************************************")
+        print("What: \(newPod.whatVal ?? "No What Filled")")
+        print("Where: \(newPod.whereVal ?? "No Where Filled")")
+        print("When: \(selectedDateStr)")
+        print("Pod Img URL: \(newPod.podImgUrl ?? "Error in getting img URL")")
+        print("Date of Creation: \(docStr)")
+        print("Will Pod Expire? \(newPod.willExpire)")
+        print("*******************************************************")
+        
     }
     
     @IBAction func addLocation(_ sender: Any) {
@@ -93,7 +184,7 @@ class HomeViewController: UIViewController {
                 if subdividedStringArray.count > 1 {
                     subdividedStringArray[1] = ""
                     //set PlaceMark to nil again
-                    selectedPlaceMark = nil
+                    self.selectedPlaceMark = nil
                     addImageForRightView(whereTextfield, iconName: Constants.Icons.addLocation)
                 }
             }
@@ -101,14 +192,38 @@ class HomeViewController: UIViewController {
             didSetLocation = false
         } else {
             //if location was not yet set
+            didSetLocation = true
             performSegue(withIdentifier: "setUserLocation", sender: nil)
+            
         }
         
     }
     
+    // *************************************
+    //problem is with this function
+    // *************************************
+    func getImageUrl() -> String{
+        var post: Post?
+        var imgUrlStr: String = ""
+        
+        UserService.posts(for: User.current) { (posts) in
+            self.posts = posts
+            self.latestPost = posts.last
+            imgUrlStr = (self.latestPost?.imageURL)!
+            
+            //this is how to create URL object with the string
+            _ = URL(string: imgUrlStr)
+            self.pod?.podImgUrl = imgUrlStr
+        }
+        return imgUrlStr
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        pod = Pod(ownerId: User.current.uid)
+        
+        print("Passcode: \(PassGenerator().randomPassCode())")
         // Do any additional setup after loading the view.
         
         // set image for navigation header
@@ -127,17 +242,11 @@ class HomeViewController: UIViewController {
         outCreatePod.layer.borderColor = UIColor.cyan.cgColor
         
         /*figure out a way to show button being pressed, check out https://stackoverflow.com/questions/48317211/programmatically-added-button-not-showing-touch-feel-in-ios
-        */
+         */
         
         
         //add location button on where textfield
         addImageForRightView(whereTextfield, iconName: Constants.Icons.addLocation)
-        
-//        photoHelper.completionHandler = { image in
-//
-//            //upload image
-//            PostService.create(for: image)
-//        }
         
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .dateAndTime
@@ -165,10 +274,10 @@ class HomeViewController: UIViewController {
         dateFormatter.dateFormat = "MMM dd, yyyy hh:mm a"
         
         // Apply date format
-        let selectedDate: String = dateFormatter.string(from: sender.date)
-        
-        whenTextfield.text = selectedDate
-        print("Selected value \(selectedDate)")
+        let selectedDateStr: String = dateFormatter.string(from: sender.date)
+        self.selectedDate = sender.date
+        whenTextfield.text = selectedDateStr
+        print("Selected value \(selectedDateStr)")
     }
     
     func addImageForRightView(_ textField: UITextField, iconName: String) {
@@ -203,7 +312,7 @@ class HomeViewController: UIViewController {
         textField.layer.addSublayer(border)
         textField.layer.masksToBounds = true
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -211,21 +320,21 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-     
+        
         //self.view.setNeedsLayout()
     }
     
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationNavigationController = segue.destination as! UINavigationController
@@ -233,20 +342,19 @@ class HomeViewController: UIViewController {
         
         targetController.userLocationDelegate = self
     }
-
+    
 }
 
 extension HomeViewController: HandleUserPrefLocation {
     
     func getSelectedLocation(selectedPlaceMark: MKPlacemark) {
         
-        
-        
         guard let title = selectedPlaceMark.title, let _ = selectedPlaceMark.name else {
             return
         }
         
         self.selectedPlaceMark = selectedPlaceMark
+        pod?.locPlaceMark = selectedPlaceMark
         
         print("***************** FINALLY! \(title) ******************")
         

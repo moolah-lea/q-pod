@@ -42,6 +42,9 @@
                                         <rect key="frame" x="95.5" y="0.0" width="51" height="31"/>
                                         <color key="onTintColor" red="0.19215686274509802" green="1" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="thumbTintColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="toggleLabel:" destination="dBX-ov-LQB" eventType="valueChanged" id="a8B-QN-1q9"/>
+                                        </connections>
                                     </switch>
                                 </subviews>
                             </stackView>
@@ -161,6 +164,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="bgImgView" destination="V6j-Mb-JfO" id="N6j-qd-ytW"/>
+                        <outlet property="expireSwitch" destination="fvb-jf-Mie" id="bfh-tG-lct"/>
+                        <outlet property="expiryLabel" destination="gdj-Y6-nDy" id="Hnm-KD-Oun"/>
                         <outlet property="outAddBg" destination="YYR-qC-RM7" id="hTn-Rk-8bV"/>
                         <outlet property="outCreatePod" destination="KXX-gr-3mG" id="Zko-VE-XoB"/>
                         <outlet property="whatTextfield" destination="8xV-za-YUo" id="nvx-Ge-ieI"/>

@@ -10,6 +10,9 @@
 		7E27D03820F66539000ECFC8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E27D03720F66539000ECFC8 /* Post.swift */; };
 		7E2B0E2D20E667C100B1D8BF /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E2B0E2C20E667C100B1D8BF /* Home.storyboard */; };
 		7E36561820F879FF0069E12E /* UIColor+Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E36561720F879FF0069E12E /* UIColor+Icons.swift */; };
+		7E36561A20F8B25F0069E12E /* Pod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E36561920F8B25F0069E12E /* Pod.swift */; };
+		7E4230B920F8E28C004556AB /* PassGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4230B820F8E28C004556AB /* PassGenerator.swift */; };
+		7E4230BB20F9E13F004556AB /* UIView+Animate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4230BA20F9E13F004556AB /* UIView+Animate.swift */; };
 		7E4C73D320F1F8F100F29088 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4C73D220F1F8F100F29088 /* LocationSearchTable.swift */; };
 		7E4C73D520F243E700F29088 /* ArtworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4C73D420F243E700F29088 /* ArtworkHelper.swift */; };
 		7E4C73D720F24F9000F29088 /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4C73D620F24F9000F29088 /* Artwork.swift */; };
@@ -40,6 +43,9 @@
 		7E27D03720F66539000ECFC8 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		7E2B0E2C20E667C100B1D8BF /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		7E36561720F879FF0069E12E /* UIColor+Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Icons.swift"; sourceTree = "<group>"; };
+		7E36561920F8B25F0069E12E /* Pod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pod.swift; sourceTree = "<group>"; };
+		7E4230B820F8E28C004556AB /* PassGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassGenerator.swift; sourceTree = "<group>"; };
+		7E4230BA20F9E13F004556AB /* UIView+Animate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animate.swift"; sourceTree = "<group>"; };
 		7E4C73D220F1F8F100F29088 /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		7E4C73D420F243E700F29088 /* ArtworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkHelper.swift; sourceTree = "<group>"; };
 		7E4C73D620F24F9000F29088 /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
@@ -143,6 +149,7 @@
 				7EC2179320F64535003CDCA8 /* UIImage+Size.swift */,
 				7EC2179520F6456C003CDCA8 /* StorageReference+Post.swift */,
 				7E36561720F879FF0069E12E /* UIColor+Icons.swift */,
+				7E4230BA20F9E13F004556AB /* UIView+Animate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -153,6 +160,7 @@
 				7E9EAFA020E8DD0C006A5F5B /* MGPhotoHelper.swift */,
 				7E4C73D420F243E700F29088 /* ArtworkHelper.swift */,
 				7E4C73D620F24F9000F29088 /* Artwork.swift */,
+				7E4230B820F8E28C004556AB /* PassGenerator.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -162,6 +170,7 @@
 			children = (
 				7E9F637E20E11BB700D864F5 /* User.swift */,
 				7E27D03720F66539000ECFC8 /* Post.swift */,
+				7E36561920F8B25F0069E12E /* Pod.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -354,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EC2179420F64535003CDCA8 /* UIImage+Size.swift in Sources */,
+				7E4230B920F8E28C004556AB /* PassGenerator.swift in Sources */,
 				7E9EAFA120E8DD0C006A5F5B /* MGPhotoHelper.swift in Sources */,
 				7E4C73D520F243E700F29088 /* ArtworkHelper.swift in Sources */,
 				7EC2179620F6456C003CDCA8 /* StorageReference+Post.swift in Sources */,
@@ -362,11 +372,13 @@
 				7E27D03820F66539000ECFC8 /* Post.swift in Sources */,
 				7E9F637D20E110D600D864F5 /* LoginViewController.swift in Sources */,
 				7E9F638320E1253D00D864F5 /* UserService.swift in Sources */,
+				7E36561A20F8B25F0069E12E /* Pod.swift in Sources */,
 				7E9F638920E13F3800D864F5 /* HomeViewController.swift in Sources */,
 				7E36561820F879FF0069E12E /* UIColor+Icons.swift in Sources */,
 				7E9F638720E12D0800D864F5 /* Storyboard+Utility.swift in Sources */,
 				7E9EAFA920EAA27C006A5F5B /* MapViewController.swift in Sources */,
 				7E4C73D320F1F8F100F29088 /* LocationSearchTable.swift in Sources */,
+				7E4230BB20F9E13F004556AB /* UIView+Animate.swift in Sources */,
 				7E9EAF9D20E8D4A6006A5F5B /* ImageColorTint.swift in Sources */,
 				7E9EAFA720E8EF16006A5F5B /* PostService.swift in Sources */,
 				7E9F638520E128D700D864F5 /* Constants.swift in Sources */,
