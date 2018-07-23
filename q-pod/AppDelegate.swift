@@ -20,11 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let navigationBarAppearance = UINavigationBar.appearance()
         
-        navigationBarAppearance.tintColor = UIColor().uicolorFromHex(rgbValue: 0xFFFFFF)
-        navigationBarAppearance.barTintColor = UIColor().uicolorFromHex(rgbValue: 0x000000)
-        navigationBarAppearance.titleTextAttributes = [NSAttributedStringKey(rawValue: NSAttributedStringKey.foregroundColor.rawValue): UIColor.white]
+        navigationBarAppearance.tintColor = UIColor().uicolorFromHex(rgbValue: 0x353535)
+        navigationBarAppearance.barTintColor = UIColor().uicolorFromHex(rgbValue: 0xFFFFFF)
+        navigationBarAppearance.titleTextAttributes = [NSAttributedStringKey(rawValue: NSAttributedStringKey.foregroundColor.rawValue): UIColor().uicolorFromHex(rgbValue: 0x353535)]
         
-        application.statusBarStyle = .lightContent
+        application.statusBarStyle = .default
+        
         
         configureInitialRootViewController(for: window)
         

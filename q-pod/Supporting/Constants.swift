@@ -11,6 +11,8 @@ import Foundation
 struct Constants {
     struct Segue {
         static let toCreateUsername = "toCreateUsername"
+        static let toCreatePod = "toCreatePod"
+        static let setUserLocation = "setUserLocation"
     }
     
     struct UserDefaults {
@@ -21,7 +23,7 @@ struct Constants {
     
     struct Icons {
         static let addLocation = "ic_add_location.png"
-        static let logo = "nav_logo.png"
+        static let logo = "nav_logo_dark.png"
     }
     
 }

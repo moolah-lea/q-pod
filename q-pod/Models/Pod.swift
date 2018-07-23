@@ -25,7 +25,20 @@ class Pod {
     var doc: Date?
     var willExpire: Bool = true
     
-    
+    init(){
+        podId = ""
+        ownerId = ""
+        passcode = ""
+        participantsId = []
+        whatVal = ""
+        whenVal = Date()
+        whereVal = ""
+        locPlaceMark = nil
+        podImgUrl = ""
+        podUrl = ""
+        doc = Date()
+        willExpire = true
+    }
     
     init(ownerId: String) {
         self.ownerId = ownerId
@@ -46,7 +59,7 @@ class Pod {
         locPlaceMark = nil
         
         //get imgurl
-        podImgUrl = "ERROR URL!"
+        
         
         //get podUrl via implementing Dynamic Links
         

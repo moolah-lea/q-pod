@@ -47,7 +47,7 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UIApplication.shared.statusBarStyle = .lightContent
+        UIApplication.shared.statusBarStyle = .default
         self.setNeedsStatusBarAppearanceUpdate()
         
         // Do any additional setup after loading the view.

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E1E8AC921060FFA00304883 /* AskQuestion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1E8AC821060FFA00304883 /* AskQuestion.storyboard */; };
 		7E27D03820F66539000ECFC8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E27D03720F66539000ECFC8 /* Post.swift */; };
 		7E2B0E2D20E667C100B1D8BF /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E2B0E2C20E667C100B1D8BF /* Home.storyboard */; };
 		7E36561820F879FF0069E12E /* UIColor+Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E36561720F879FF0069E12E /* UIColor+Icons.swift */; };
@@ -35,11 +36,13 @@
 		7E9F638920E13F3800D864F5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F638820E13F3800D864F5 /* HomeViewController.swift */; };
 		7EC2179420F64535003CDCA8 /* UIImage+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC2179320F64535003CDCA8 /* UIImage+Size.swift */; };
 		7EC2179620F6456C003CDCA8 /* StorageReference+Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC2179520F6456C003CDCA8 /* StorageReference+Post.swift */; };
+		7EC2BE272101ABD100D61B9F /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC2BE262101ABD100D61B9F /* InviteViewController.swift */; };
 		D99DF4BB10286DD2B1F69D4F /* Pods_q_pod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B5C92200F903CF5EEDA184A /* Pods_q_pod.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4B5C92200F903CF5EEDA184A /* Pods_q_pod.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_q_pod.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E1E8AC821060FFA00304883 /* AskQuestion.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AskQuestion.storyboard; sourceTree = "<group>"; };
 		7E27D03720F66539000ECFC8 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		7E2B0E2C20E667C100B1D8BF /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		7E36561720F879FF0069E12E /* UIColor+Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Icons.swift"; sourceTree = "<group>"; };
@@ -70,6 +73,7 @@
 		7E9F638820E13F3800D864F5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7EC2179320F64535003CDCA8 /* UIImage+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Size.swift"; sourceTree = "<group>"; };
 		7EC2179520F6456C003CDCA8 /* StorageReference+Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StorageReference+Post.swift"; sourceTree = "<group>"; };
+		7EC2BE262101ABD100D61B9F /* InviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
 		98B508A0012A34F77B47E5B9 /* Pods-q-pod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-q-pod.release.xcconfig"; path = "Pods/Target Support Files/Pods-q-pod/Pods-q-pod.release.xcconfig"; sourceTree = "<group>"; };
 		DEFCA94F67D7AD01E29086DC /* Pods-q-pod.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-q-pod.debug.xcconfig"; path = "Pods/Target Support Files/Pods-q-pod/Pods-q-pod.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,6 +141,7 @@
 				7E9F638820E13F3800D864F5 /* HomeViewController.swift */,
 				7E9EAFA820EAA27C006A5F5B /* MapViewController.swift */,
 				7E4C73D220F1F8F100F29088 /* LocationSearchTable.swift */,
+				7EC2BE262101ABD100D61B9F /* InviteViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 				7E9F636720E0F86800D864F5 /* LaunchScreen.storyboard */,
 				7E9F637A20E1108400D864F5 /* Login.storyboard */,
 				7E2B0E2C20E667C100B1D8BF /* Home.storyboard */,
+				7E1E8AC821060FFA00304883 /* AskQuestion.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -286,6 +292,7 @@
 				7E9F637120E10D1900D864F5 /* GoogleService-Info.plist in Resources */,
 				7E9F636620E0F86800D864F5 /* Assets.xcassets in Resources */,
 				7E2B0E2D20E667C100B1D8BF /* Home.storyboard in Resources */,
+				7E1E8AC921060FFA00304883 /* AskQuestion.storyboard in Resources */,
 				7E9F637B20E1108400D864F5 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,6 +372,7 @@
 				7EC2179420F64535003CDCA8 /* UIImage+Size.swift in Sources */,
 				7E4230B920F8E28C004556AB /* PassGenerator.swift in Sources */,
 				7E9EAFA120E8DD0C006A5F5B /* MGPhotoHelper.swift in Sources */,
+				7EC2BE272101ABD100D61B9F /* InviteViewController.swift in Sources */,
 				7E4C73D520F243E700F29088 /* ArtworkHelper.swift in Sources */,
 				7EC2179620F6456C003CDCA8 /* StorageReference+Post.swift in Sources */,
 				7E4C73D720F24F9000F29088 /* Artwork.swift in Sources */,
@@ -521,6 +529,7 @@
 			baseConfigurationReference = DEFCA94F67D7AD01E29086DC /* Pods-q-pod.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6KZZH32CH6;
 				INFOPLIST_FILE = "$(SRCROOT)/q-pod/Supporting/Info.plist";
@@ -540,6 +549,7 @@
 			baseConfigurationReference = 98B508A0012A34F77B47E5B9 /* Pods-q-pod.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6KZZH32CH6;
 				INFOPLIST_FILE = "$(SRCROOT)/q-pod/Supporting/Info.plist";
