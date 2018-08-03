@@ -20,6 +20,17 @@ class InviteViewController: UIViewController {
     
     @IBAction func actGotoPod(_ sender: UIButton) {
         print("*********************** GO TO YOUR POD! ***********************")
+        
+        performSegue(withIdentifier: Constants.Segue.goToPod, sender: nil)
+        
+//        var vc = UIStoryboard.init(name: "AskQuestion", bundle:Bundle.main).instantiateViewController(withIdentifier: "PodViewController") as! UINavigationController
+//        vc.currPod = self.currPod
+//        self.present(vc, animated: true, completion: nil)
+
+//        let storyboard = UIStoryboard(name: "AskQuestion", bundle: nil)
+//        let vc = storyboard.instantiateViewController(withIdentifier: "PodViewController") as! PodViewController
+//        present(vc, animated: true, completion: nil)
+        
     }
     
     
@@ -70,6 +81,24 @@ class InviteViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == Constants.Segue.goToPod {
+//            if let destinationNavigationController = segue.destination as? UINavigationController {
+//                let targetController = destinationNavigationController.topViewController as! PodViewController
+//                //targetController.userLocationDelegate = self
+//                targetController.currPod = self.currPod
+//                print("AT LEAST YOU ARE HERE!!! Owner ID: \(targetController.currPod.ownerId ?? "NULL!")")
+//            }
+            
+            if let destinationController = segue.destination as? UINavigationController {
+                let targetController = destinationController.topViewController as! PodViewController
+                targetController.currPod = currPod
+            }
+        }
+    }
+    
     
 
     /*

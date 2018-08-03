@@ -54,6 +54,23 @@ struct UserService {
         })
     }
     
+    static func createPod(forCurrUser podId: String) {
+        // create new pod for user in database
+        
+        // 1
+        let currentUser = User.current
+        // 2
+        
+        // 4 - Reference to users/uid/pods/
+        let podRef = Database.database().reference().child("users/\(currentUser.uid)/pods").child(podId)
+        
+        //5
+        podRef.setValue(true)
+        
+    }
+    
+    
+    
 //    static func latestPost(for user: User, completion: @escaping Post?) -> Void) {
 //        let ref = Database.database().reference().child("posts").child(user.uid)
 //        

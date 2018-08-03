@@ -12,7 +12,7 @@ import MapKit
 class Pod {
     
     //properties and initializers
-    let podId: String?
+    var podId: String?
     let ownerId: String?
     let passcode: String?
     var participantsId: [String]
@@ -44,7 +44,8 @@ class Pod {
         self.ownerId = ownerId
         
         //create a unique ID for podId
-        podId = "pod\(UUID().uuidString)"
+        //only overwrite at time of posting to Firebase
+        podId = "pod_yet_to_set"
         
         //generate a random dictionary word with numbers for passcode
         passcode = PassGenerator().randomPassCode()
@@ -68,6 +69,24 @@ class Pod {
         doc = Date()
         
         
+    }
+    
+    var dictValue: [String : Any] {
+        
+        return ["owner_id" : ownerId,
+                "passcode" : passcode,
+                //participants values in array of strings?
+                "what" : whatVal,
+                "when" : whenVal?.description,
+                "where" : whereVal,
+                //using long/lat
+                "loc_place_mark_long" : locPlaceMark?.coordinate.longitude,
+                "loc_place_mark_lat" : locPlaceMark?.coordinate.latitude,
+                "pod_img_url" : podImgUrl,
+                "pod_url" : podUrl,
+                "doc" : doc?.timeIntervalSince1970,
+                "will_expire" : willExpire
+                                        ]
     }
     
     

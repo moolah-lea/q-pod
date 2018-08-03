@@ -13,6 +13,7 @@ struct Constants {
         static let toCreateUsername = "toCreateUsername"
         static let toCreatePod = "toCreatePod"
         static let setUserLocation = "setUserLocation"
+        static let goToPod = "goToPod"
     }
     
     struct UserDefaults {

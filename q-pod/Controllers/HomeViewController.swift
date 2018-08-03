@@ -74,11 +74,12 @@ class HomeViewController: UIViewController {
                 self.imgUrl = imgURL
                 self.imgUrlStr = imgURL.absoluteString
                 print("YES MOTHER FUCKER!! \(self.imgUrlStr)")
+                self.didSetBg = true
             }
             
             //set background
             self.bgImgView.image = image
-            self.didSetBg = true
+            
         }
         
         /****************
@@ -117,7 +118,7 @@ class HomeViewController: UIViewController {
         //check podImg is not nil get textfield values
         //remember to handle when pod does not have image
         //right now assuming all pod's need image
-        guard podImg != nil, let currWhatVal = whatTextfield.text, let currWhereVal = whereTextfield.text, let currWhenVal = whenTextfield.text else {
+        guard podImg != nil, let currWhatVal = whatTextfield.text, let currWhereVal = whereTextfield.text, let _ = whenTextfield.text else {
             return
         }
         if didSetBg {
@@ -166,6 +167,8 @@ class HomeViewController: UIViewController {
         
         self.pod = newPod
         print("PLEASE!!!")
+        PodService.create(forPod: newPod)
+        
         performSegue(withIdentifier: Constants.Segue.toCreatePod, sender: nil)
         
     }

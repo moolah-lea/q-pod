@@ -8,8 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		7E1E8AC921060FFA00304883 /* AskQuestion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1E8AC821060FFA00304883 /* AskQuestion.storyboard */; };
+		7E1E8ACB2107603300304883 /* AskQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1E8ACA2107603300304883 /* AskQuestionViewController.swift */; };
+		7E1E8ACD2107634100304883 /* PodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1E8ACC2107634100304883 /* PodViewController.swift */; };
 		7E27D03820F66539000ECFC8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E27D03720F66539000ECFC8 /* Post.swift */; };
 		7E2B0E2D20E667C100B1D8BF /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E2B0E2C20E667C100B1D8BF /* Home.storyboard */; };
+		7E363AF6210F05CB005B3300 /* PodService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E363AF5210F05CB005B3300 /* PodService.swift */; };
+		7E363AF8211335D2005B3300 /* PodCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E363AF7211335D2005B3300 /* PodCollectionCell.swift */; };
 		7E36561820F879FF0069E12E /* UIColor+Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E36561720F879FF0069E12E /* UIColor+Icons.swift */; };
 		7E36561A20F8B25F0069E12E /* Pod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E36561920F8B25F0069E12E /* Pod.swift */; };
 		7E4230B920F8E28C004556AB /* PassGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4230B820F8E28C004556AB /* PassGenerator.swift */; };
@@ -43,8 +47,12 @@
 /* Begin PBXFileReference section */
 		4B5C92200F903CF5EEDA184A /* Pods_q_pod.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_q_pod.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E1E8AC821060FFA00304883 /* AskQuestion.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AskQuestion.storyboard; sourceTree = "<group>"; };
+		7E1E8ACA2107603300304883 /* AskQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskQuestionViewController.swift; sourceTree = "<group>"; };
+		7E1E8ACC2107634100304883 /* PodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodViewController.swift; sourceTree = "<group>"; };
 		7E27D03720F66539000ECFC8 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		7E2B0E2C20E667C100B1D8BF /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		7E363AF5210F05CB005B3300 /* PodService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodService.swift; sourceTree = "<group>"; };
+		7E363AF7211335D2005B3300 /* PodCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodCollectionCell.swift; sourceTree = "<group>"; };
 		7E36561720F879FF0069E12E /* UIColor+Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Icons.swift"; sourceTree = "<group>"; };
 		7E36561920F8B25F0069E12E /* Pod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pod.swift; sourceTree = "<group>"; };
 		7E4230B820F8E28C004556AB /* PassGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassGenerator.swift; sourceTree = "<group>"; };
@@ -142,6 +150,8 @@
 				7E9EAFA820EAA27C006A5F5B /* MapViewController.swift */,
 				7E4C73D220F1F8F100F29088 /* LocationSearchTable.swift */,
 				7EC2BE262101ABD100D61B9F /* InviteViewController.swift */,
+				7E1E8ACA2107603300304883 /* AskQuestionViewController.swift */,
+				7E1E8ACC2107634100304883 /* PodViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -166,6 +176,7 @@
 				7E4C73D420F243E700F29088 /* ArtworkHelper.swift */,
 				7E4C73D620F24F9000F29088 /* Artwork.swift */,
 				7E4230B820F8E28C004556AB /* PassGenerator.swift */,
+				7E363AF7211335D2005B3300 /* PodCollectionCell.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -186,6 +197,7 @@
 				7E9F638220E1253D00D864F5 /* UserService.swift */,
 				7E9EAFA220E8EE3E006A5F5B /* StorageService.swift */,
 				7E9EAFA620E8EF16006A5F5B /* PostService.swift */,
+				7E363AF5210F05CB005B3300 /* PodService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -377,9 +389,12 @@
 				7EC2179620F6456C003CDCA8 /* StorageReference+Post.swift in Sources */,
 				7E4C73D720F24F9000F29088 /* Artwork.swift in Sources */,
 				7E9F637F20E11BB700D864F5 /* User.swift in Sources */,
+				7E1E8ACB2107603300304883 /* AskQuestionViewController.swift in Sources */,
 				7E27D03820F66539000ECFC8 /* Post.swift in Sources */,
 				7E9F637D20E110D600D864F5 /* LoginViewController.swift in Sources */,
 				7E9F638320E1253D00D864F5 /* UserService.swift in Sources */,
+				7E1E8ACD2107634100304883 /* PodViewController.swift in Sources */,
+				7E363AF8211335D2005B3300 /* PodCollectionCell.swift in Sources */,
 				7E36561A20F8B25F0069E12E /* Pod.swift in Sources */,
 				7E9F638920E13F3800D864F5 /* HomeViewController.swift in Sources */,
 				7E36561820F879FF0069E12E /* UIColor+Icons.swift in Sources */,
@@ -393,6 +408,7 @@
 				7E9F638120E122E700D864F5 /* CreateUsernameViewController.swift in Sources */,
 				7E9EAFA320E8EE3E006A5F5B /* StorageService.swift in Sources */,
 				7E9F635F20E0F86600D864F5 /* AppDelegate.swift in Sources */,
+				7E363AF6210F05CB005B3300 /* PodService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
